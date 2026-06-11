@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduReforço – Plataforma de Reforço Escolar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== CABEÇALHO ========== -->
+  <header>
+    <div class="header-inner">
+      <h1>📚 EduReforço</h1>
+      <p class="subtitulo">Plataforma de Reforço Escolar · ODS 4 – Educação de Qualidade</p>
+    </div>
+  </header>
+
+  <!-- ========== TELA DE CADASTRO ========== -->
+  <main id="tela-cadastro">
+    <section class="card-central">
+      <h2>Bem-vindo(a)!</h2>
+      <p>Informe seu nome para começar os estudos.</p>
+
+      <div class="campo">
+        <label for="input-nome">Seu nome:</label>
+        <input type="text" id="input-nome" placeholder="Ex: João Pedro" maxlength="40" />
+      </div>
+
+      <button id="btn-entrar" onclick="iniciarSessao()">Entrar na Plataforma</button>
+
+      <p id="erro-cadastro" class="mensagem-erro" style="display:none;">
+        Por favor, informe seu nome antes de continuar.
+      </p>
+    </section>
+  </main>
+
+  <!-- ========== TELA PRINCIPAL (TRILHAS) ========== -->
+  <main id="tela-trilhas" style="display:none;">
+
+    <!-- Painel do aluno -->
+    <section class="painel-aluno">
+      <div class="painel-item">
+        👤 <span id="exibe-nome">—</span>
+      </div>
+      <div class="painel-item">
+        ⭐ Pontuação: <span id="exibe-pontuacao">0</span>
+      </div>
+      <div class="painel-item">
+        ✅ Exercícios: <span id="exibe-total">0</span>
+      </div>
+    </section>
+
+    <!-- Lista de trilhas disponíveis -->
+    <section class="secao">
+      <h2>Escolha uma Trilha de Estudo</h2>
+      <div id="lista-trilhas" class="grid-trilhas">
+        <!-- Trilhas geradas pelo JavaScript -->
+      </div>
+    </section>
+
+    <!-- Histórico (Pilha) -->
+    <section class="secao">
+      <h2>📋 Histórico de Respostas</h2>
+      <p class="texto-info">As últimas respostas ficam empilhadas aqui.</p>
+      <div id="lista-historico" class="historico">
+        <p class="texto-vazio">Nenhuma resposta ainda.</p>
+      </div>
+      <button onclick="desfazerUltima()" class="btn-secundario">↩ Desfazer Última Resposta</button>
+    </section>
+
+  </main>
+
+  <!-- ========== TELA DO EXERCÍCIO ========== -->
+  <main id="tela-exercicio" style="display:none;">
+
+    <section class="card-central">
+
+      <!-- Informações do exercício -->
+      <div class="info-exercicio">
+        <span id="exibe-materia" class="tag-materia">Matéria</span>
+        <span id="exibe-progresso" class="progresso-texto">1 / 5</span>
+      </div>
+
+      <!-- Pergunta -->
+      <h2 id="exibe-pergunta" class="pergunta">Carregando pergunta...</h2>
+
+      <!-- Opções de resposta -->
+      <div id="lista-opcoes" class="opcoes">
+        <!-- Botões gerados pelo JavaScript -->
+      </div>
+
+      <!-- Feedback após responder -->
+      <div id="feedback" class="feedback" style="display:none;">
+        <p id="texto-feedback"></p>
+        <button onclick="proximaPergunta()">Próxima Pergunta →</button>
+      </div>
+
+      <!-- Botão voltar -->
+      <button onclick="voltarParaTrilhas()" class="btn-secundario btn-voltar">
+        ← Voltar às Trilhas
+      </button>
+
+    </section>
+  </main>
+
+  <!-- ========== TELA DE CONCLUSÃO ========== -->
+  <main id="tela-conclusao" style="display:none;">
+    <section class="card-central">
+      <h2>🎉 Trilha Concluída!</h2>
+      <p id="texto-conclusao"></p>
+      <div class="resultado-final">
+        <p>Pontuação total: <strong id="pontuacao-final">0</strong> pontos</p>
+      </div>
+      <button onclick="voltarParaTrilhas()">Escolher Outra Trilha</button>
+    </section>
+  </main>
+
+  <!-- ========== RODAPÉ ========== -->
+  <footer>
+    <p>EduReforço · AEP 2026.1 · UniCesumar · ADS &amp; ESOFT 3º Semestre · ODS 4 – Educação de Qualidade</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
